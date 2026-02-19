@@ -1,0 +1,43 @@
+name: Multi-OS Testing - Ajay
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Ubuntu test
+        run: echo "Testing on Ubuntu..."
+
+      - name: Show OS info (Ubuntu)
+        run: uname -a
+
+      - name: Create test file (Ubuntu)
+        run: echo "Ubuntu test by Ajay" > test-ubuntu.txt
+
+      - name: Display file contents (Ubuntu)
+        run: cat test-ubuntu.txt
+
+      - name: Finish Ubuntu test
+        run: echo "Ubuntu tests completed"
+
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Start Windows test
+        run: echo "Testing on Windows..."
+
+      - name: Show OS info (Windows)
+        run: systeminfo
+
+      - name: Create test file (Windows)
+        run: echo "Windows test by Ajay" > test-windows.txt
+
+      - name: Display file contents (Windows)
+        run: type test-windows.txt
+
+      - name: Finish Windows test
+        run: echo "Windows tests completed"
